@@ -8,6 +8,7 @@ export default function Home() {
 
   const generateImage = async () => {
     setLoading(true);
+    console.log("Prompt untuk image:", prompt); // Cek prompt di console
     const res = await fetch("/api/generate", {
       method: "POST",
       headers: {
@@ -16,12 +17,14 @@ export default function Home() {
       body: JSON.stringify({ prompt }),
     });
     const data = await res.json();
+    console.log("Generated Image:", data); // Cek hasil respons API
     setImage(data.image);
     setLoading(false);
   };
 
   const generateVideo = async () => {
     setLoading(true);
+    console.log("Prompt untuk video:", prompt); // Cek prompt untuk video
     const res = await fetch("/api/generateVideo", {
       method: "POST",
       headers: {
@@ -30,6 +33,7 @@ export default function Home() {
       body: JSON.stringify({ prompt }),
     });
     const data = await res.json();
+    console.log("Generated Video:", data); // Cek hasil respons API
     setVideo(data.video);
     setLoading(false);
   };
