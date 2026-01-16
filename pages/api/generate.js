@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   const { prompt } = req.body;
 
   // Untuk demo, kita pakai gambar placeholder
-  const generatedImage = `https://via.placeholder.com/512?text=Generated+Image+from+${prompt}`;
+  const generatedImage = `https://via.placeholder.com/512?text=Generated+Image+from+${encodeURIComponent(prompt)}`;
 
   res.status(200).json({ image: generatedImage });
 }
